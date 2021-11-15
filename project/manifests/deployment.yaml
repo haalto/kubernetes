@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hashgenerator-dep
+  name: web-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hashgenerator
+      app: web-server
   template:
     metadata:
       labels:
-        app: hashgenerator
+        app: web-server
     spec:
       containers:
-        - name: hashgenerator
+        - name: web-server
           image: haalto/web-server
