@@ -12,6 +12,17 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: shared-logs
+          emptyDir: {}
       containers:
-        - name: log-output
-          image: haalto/log-output
+        - name: log-output-writer
+          image: haalto/log-output-writer
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /usr/src/app/files
+        - name: log-output-reader
+          image: haalto/log-output-reader
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /usr/src/app/files
