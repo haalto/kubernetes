@@ -14,7 +14,7 @@ spec:
     spec:
       volumes:
         - name: shared-logs
-          peristentVolumeClaim:
+          persistentVolumeClaim:
             claimName: logs-claim
       containers:
         - name: log-output-writer
