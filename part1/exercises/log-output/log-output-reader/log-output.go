@@ -10,16 +10,6 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
-		files, err := ioutil.ReadDir("./")
-    if err != nil {
-        log.Fatal(err)
-    }
- 
-    for _, f := range files {
-            fmt.Println(f.Name())
-    }
-
 		b, err := ioutil.ReadFile(filepath.Join("/", "usr", "src", "app", "files", "logs.log"))
 		if err != nil {
 			fmt.Print(err)

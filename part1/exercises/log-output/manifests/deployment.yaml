@@ -14,7 +14,8 @@ spec:
     spec:
       volumes:
         - name: shared-logs
-          emptyDir: {}
+          peristentVolumeClaim:
+            claimName: logs-claim
       containers:
         - name: log-output-writer
           image: haalto/log-output-writer
