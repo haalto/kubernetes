@@ -12,6 +12,13 @@ spec:
       labels:
         app: web-server
     spec:
+      volumes:
+        - name: shared-logs
+          persistentVolumeClaim:
+            claimName: logs-claim
       containers:
         - name: web-server
           image: haalto/web-server
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /usr/src/app/files
